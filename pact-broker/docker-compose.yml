@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'password'
+      POSTGRES_DB: 'postgres'
+
+  pact_broker:
+    build: ./broker
+    # command: sh /app/wait-for.sh postgres:5432 -- /pact_broker/entrypoint.sh config.ru
+    ports:
+      - "9292:9292"
+    environment:
+      PACT_BROKER_BASIC_AUTH_USERNAME: username
+      PACT_BROKER_BASIC_AUTH_PASSWORD: 'password'
+      PACT_BROKER_DATABASE_USERNAME: 'postgres'
+      PACT_BROKER_DATABASE_PASSWORD: 'password'
+      PACT_BROKER_DATABASE_HOST: 'postgres'
+      PACT_BROKER_DATABASE_NAME: 'postgres'
+      PACT_BROKER_PORT: '9292'

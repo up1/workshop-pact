@@ -11,9 +11,17 @@ const server = app.listen(port)
 describe("Pact Verification", () => {
     it("validates the expectations of Service B", () => {
         const options = {
+            //Broker
+            pactBrokerUrl: 'http://localhost:9292',
+            pactBrokerUsername: 'username',
+            pactBrokerPassword: 'password',
+            tags: ['prod'],
+            publishVerificationResult: true,
+            providerVersion: '1.0.' + Math.floor(new Date() / 1000),
+
             providerBaseUrl: `http://localhost:${port}`,
             provider: 'Service B',
-            psroviderVersion: '1.0.0',
+            
             pactUrls: [
                 path.resolve(__dirname, '../../service_a/pacts/service_a-service_b.json')
             ],
