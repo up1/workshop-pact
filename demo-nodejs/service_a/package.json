@@ -13,7 +13,10 @@
     "superagent": "^5.2.2"
   },
   "devDependencies": {
+    "@pact-foundation/pact": "^9.11.0",
+    "@pact-foundation/pact-node": "^10.9.4",
     "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.9",
     "jest": "^26.0.1",
     "nock": "^12.0.3"
   }
