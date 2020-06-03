@@ -14,7 +14,7 @@ describe("Service B Test with Pact", () => {
             log: path.resolve(process.cwd(), 'logs', 'pact.log'),
             logLevel: "warn",
             dir: path.resolve(process.cwd(), 'pacts'),
-            spec: 2
+            spec: 4
         })
         await provider.setup()
     });
